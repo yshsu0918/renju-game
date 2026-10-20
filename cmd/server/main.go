@@ -2,7 +2,7 @@
 //
 // Settings come from environment variables:
 //
-//	RENJU_ADDR              listen address (default ":8080")
+//	RENJU_ADDR              listen address (default ":8200")
 //	RENJU_ENGINE            AI engine: builtin (default); piskvork and http are planned
 //	RENJU_ENGINE_TIMEOUT    think time per AI move (default 3s)
 //	RENJU_RECONNECT_GRACE   how long a disconnected player's seat is held (default 60s)
@@ -35,7 +35,7 @@ func main() {
 }
 
 func run(log *slog.Logger) error {
-	addr := env("RENJU_ADDR", ":8080")
+	addr := env("RENJU_ADDR", ":8200")
 	engineTimeout, err := time.ParseDuration(env("RENJU_ENGINE_TIMEOUT", "3s"))
 	if err != nil {
 		return err

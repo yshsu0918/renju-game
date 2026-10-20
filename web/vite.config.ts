@@ -8,7 +8,7 @@ export default defineConfig({
   server: {
     host: true,
     proxy: {
-      '/ws': { target: process.env.RENJU_SERVER ?? 'http://localhost:8080', ws: true },
+      '/ws': { target: process.env.RENJU_SERVER ?? 'http://localhost:8200', ws: true },
     },
   },
   test: {
