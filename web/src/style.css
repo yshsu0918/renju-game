@@ -1,0 +1,254 @@
+:root {
+  --bg: #f4f1ea;
+  --surface: #ffffff;
+  --text: #24211c;
+  --muted: #6f685d;
+  --border: #d9d2c4;
+  --accent: #2f6f4f;
+  --accent-text: #ffffff;
+  --danger: #b3261e;
+  --board: #e3b96b;
+  --grid: #4a3418;
+  color-scheme: light;
+  font-family: system-ui, -apple-system, 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1b1a17;
+    --surface: #262420;
+    --text: #ece7dd;
+    --muted: #a39b8d;
+    --border: #3d3a33;
+    --accent: #5aa57d;
+    --accent-text: #0f1a14;
+    --danger: #ef7a6f;
+    --board: #c99a4e;
+    --grid: #3a2812;
+    color-scheme: dark;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin: 0 0 24px;
+  letter-spacing: 0.1em;
+}
+
+h2 {
+  margin: 0 0 16px;
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.buttons.row {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  max-width: none;
+  margin-top: 16px;
+}
+
+button {
+  font: inherit;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
+button.danger {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.choice {
+  border: none;
+  margin: 0 0 16px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.choice legend {
+  width: 100%;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.choice label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.choice label.disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.small {
+  font-size: 0.85rem;
+}
+
+.error {
+  color: var(--danger);
+}
+
+.notice {
+  text-align: center;
+  color: var(--muted);
+  margin: 8px 0;
+}
+
+.code {
+  font-size: 2.6rem;
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  letter-spacing: 0.25em;
+  padding: 12px 24px;
+  margin: 8px 0 4px;
+}
+
+.code-input {
+  font-size: 2rem;
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  letter-spacing: 0.25em;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  max-width: 280px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+}
+
+.board-screen {
+  position: relative;
+}
+
+.status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.players {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vs {
+  color: var(--muted);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  font-size: 0.9rem;
+}
+
+.badge::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.badge.black::before {
+  background: #111;
+}
+
+.badge.white::before {
+  background: #fff;
+  border: 1px solid #9a948a;
+}
+
+.turn {
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.turn.mine {
+  color: var(--accent);
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgb(0 0 0 / 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.result {
+  min-width: 260px;
+}
